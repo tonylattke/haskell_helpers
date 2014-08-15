@@ -43,12 +43,18 @@ op_mod a b = mod a b
 -- Pow
 pow :: Integral a => a -> a -> a
 pow a b = a ^ b
--- pow a b = a ** b
+-- pow a b = a ** b -> float point number
 
--- pow (sqrt 42) 2
+-- ################################## Strings operations #################################
 
--- Example replace
--- replace "," "." "127,0,0,1" -> "127.0.0.1"
+replace a b []  = []
+replace a b [c]
+	| c == a 	= [b]
+	| otherwise = [c]
+replace a b (x:xs)
+	| x == a 	= [b] ++ (replace a b xs)
+	| otherwise = [x] ++ (replace a b xs)
+-- replace ',' '.' "127,0,0,1" -> "127.0.0.1"
 
 subString :: Int -> Int -> String -> String
 subString _ _ "" = ""
@@ -64,19 +70,20 @@ aux_subString a b (x:xs)
 	| a < b = [x] ++ (aux_subString (a+1) b xs)
 	| a == b = [x]
 	| otherwise = ""
-
--- subString 0 1 "Lorem ipsum dolor sit amet" -> "Lo"
+-- subString 0 1 "Lorem ipsum dolor sit amet"  -> "Lo"
 -- subString 6 11 "Lorem ipsum dolor sit amet" -> "ipsum "
--- subString 0 5 "Lorem ipsum dolor sit amet" -> "Lorem "
+-- subString 0 5 "Lorem ipsum dolor sit amet"  -> "Lorem "
 -- subString 6 -1 "Lorem ipsum dolor sit amet" -> ""
 
 tillLast :: Int -> String -> String
 tillLast _ [] = ""
 tillLast 0 a = a
 tillLast a (_:xs) = tillLast (a-1) xs
+-- tillLast 6 "Lorem ipsum dolor sit amet" -> "ipsum dolor sit amet"
 
 takeFrom :: Int -> Int -> String -> String
 takeFrom _ 0 _ 	= ""
 takeFrom _ _ "" = ""
 takeFrom 0 a b 	= take a b
 takeFrom a b (_:xs) = takeFrom (a-1) b xs
+-- takeFrom 6 10 "Lorem ipsum dolor sit amet" -> "ipsum"
