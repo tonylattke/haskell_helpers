@@ -26,3 +26,5 @@ Get tipe of the function:
 | 2_functions.hs 		| - Functions structures |
 | 3_data_structures.hs 	| - Using basic data structures (tuples,list, map and sequence) |
 | 4_special_functions.hs| - On functional programming we use: map, fold, filter, scan.. |
+| 5_type_data_class.hs  | - Using type, newtype, data, instance and class |
+| 6_libraries.hs 		| - Date, maths and random functions |
