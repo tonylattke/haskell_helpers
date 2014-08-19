@@ -65,3 +65,21 @@ numsTill n = case n of
 -- ## compose .
 
 nums = (reverse . numsTill)
+
+-- ## Using Where
+
+--  ax^2 + bx + c = 0:
+numOfSolutions a b c
+	| disc > 0  = 2
+	| disc == 0 = 1
+	| otherwise = 0
+		where
+			disc = b^2 - 4*a*c
+
+-- ## Using Let and In
+
+cylinder :: (RealFloat a) => a -> a -> a  
+cylinder r h = 
+	let sideArea = 2 * pi * r * h;
+		topArea = pi * r ^2
+	in  sideArea + 2 * topArea

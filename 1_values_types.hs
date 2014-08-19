@@ -17,6 +17,19 @@ multi = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\
 \Phasellus mattis ac tortor sed fringilla. Etiam aliquam\
 \turpis sit amet nisi molestie, nec accumsan massa tempus.\n"
 
+-- Boolean
+value :: Bool
+value = True
+-- True && False -> False
+-- True || False -> True
+-- True == False -> True
+-- True /= False -> True
+-- not value -> False
+
+-- Char
+value2 :: Char
+value2 = 'a'
+
 -- ################################# Operating Variables ################################
 
 -- Plus
