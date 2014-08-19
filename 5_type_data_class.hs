@@ -1,5 +1,7 @@
-module ModuleTest (Color, Color2, Person(), Habilitie(..)) where
--- Note: Tree are TrafficLight not exported on this module.
+module ModuleTest (Color, Color2, Person(), hello, Habilitie(..)) where
+-- Note: Tree are MCYK not exported on this module.
+
+-- For use this module use: import ModuleTest
 	
 -- ######################################## Type ########################################
 
@@ -42,6 +44,7 @@ module ModuleTest (Color, Color2, Person(), Habilitie(..)) where
 
 	data Tree a	= Leaf a
 				| Branch (Tree a) (Tree a)
+		deriving (Eq, Ord, Show)
 
 	height :: Tree a -> Integer
 	height (Leaf _) = 0
@@ -51,13 +54,13 @@ module ModuleTest (Color, Color2, Person(), Habilitie(..)) where
 
 -- ####################################### Class ########################################
 
-	data MCYK = Magenta | Cyan | Yellow
+	data MCY = Magenta | Cyan | Yellow
 
 	class BasicEq a where
 		isEqual :: a -> a -> Bool
 
-	instance BasicEq MCYK where
-		-- isEqual :: (BasicEq MCYK) => MCYK -> MCYK -> Bool
+	instance BasicEq MCY where
+		-- isEqual :: (BasicEq MCY) => MCY -> MCY -> Bool
 		isEqual Magenta Magenta = True
 		isEqual Yellow Yellow = True
 		isEqual Cyan Cyan = True
