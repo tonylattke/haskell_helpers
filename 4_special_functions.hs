@@ -63,6 +63,12 @@ positive x
 	| x >= 0    = Just x
 	| otherwise = Nothing
 
+-- ##################################### Lookup #########################################
+
+--lookup 1 [(1,True), (2,False)] -> Just True
+--lookup 2 [(1,True), (2,False)] -> Just False
+--lookup 3 [(1,True), (2,False)] -> Nothing
+
 -- ############################### Strict evaluation ####################################
 
 -- To do (read about $!)
